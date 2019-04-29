@@ -11,8 +11,7 @@
         }
       ],
       "name": "Verified",
-      "type": "event",
-      "signature": "0x3f3cfdb26fb5f9f1786ab4f1a1f9cd4c0b5e726cbdfc26e495261731aad44e39"
+      "type": "event"
     },
     {
       "constant": false,
@@ -63,8 +62,7 @@
       ],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function",
-      "signature": "0xfe01ff62"
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"a\",\"type\":\"uint256[2]\"},{\"name\":\"a_p\",\"type\":\"uint256[2]\"},{\"name\":\"b\",\"type\":\"uint256[2][2]\"},{\"name\":\"b_p\",\"type\":\"uint256[2]\"},{\"name\":\"c\",\"type\":\"uint256[2]\"},{\"name\":\"c_p\",\"type\":\"uint256[2]\"},{\"name\":\"h\",\"type\":\"uint256[2]\"},{\"name\":\"k\",\"type\":\"uint256[2]\"},{\"name\":\"input\",\"type\":\"uint256[2]\"}],\"name\":\"verifyTx\",\"outputs\":[{\"name\":\"r\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"s\",\"type\":\"string\"}],\"name\":\"Verified\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Hadeel/Desktop/Hadeel-Blockchain-Capstone/eth-contracts/contracts/Verifier.sol\":\"Verifier\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Hadeel/Desktop/Hadeel-Blockchain-Capstone/eth-contracts/contracts/Verifier.sol\":{\"keccak256\":\"0xb6d876780ff3237014207dccc52651b6938e796b68ae39f15b94dc6c582e8bb7\",\"urls\":[\"bzzr://e6b5338e65ba12f0408687b12405b673db0883af1b0c08d83d42317d8ca7fdea\"]}},\"version\":1}",
@@ -80786,16 +80784,9 @@
     "name": "solc",
     "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
   },
-  "networks": {
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x7410e894499a671bD7fced5eB361015F12b1C484",
-      "transactionHash": "0xb93dcf4dc2fc034639b98ad8a417b8576c599e72c210dad0239fb4fd1b1a0b2c"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-04-29T06:42:32.687Z",
+  "updatedAt": "2019-04-29T15:43:01.237Z",
   "devdoc": {
     "methods": {}
   },

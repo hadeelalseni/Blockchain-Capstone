@@ -1,6 +1,6 @@
 const SolnSquareVerifier = artifacts.require('SolnSquareVerifier');
 const verifier = artifacts.require('Verifier');
-const proofme = require('../../zokrates/code/square/proof');
+const proofme = require('../../zokrates/code/square/proof.json');
 
 contract('TestSolnSquareVerifier', accounts => {
     const account_one = accounts[0];
@@ -9,7 +9,7 @@ contract('TestSolnSquareVerifier', accounts => {
     describe('Test solution functions', async function () {
         beforeEach(async function (){
             try{
-                var verifierMe = await Verifier.new({from: account_one});
+                var verifierMe = await verifier.new({from: account_one});
                 this.contract = await SolnSquareVerifier.new(verifierMe.address, {from: account_one});
             }catch(error){
                 console.log("error in beforeeach: ", error);
@@ -20,7 +20,7 @@ contract('TestSolnSquareVerifier', accounts => {
             let index = 3;
             let solver = accounts[3];
             try{
-                await this.contract.SolnSquareVerifier.addSolution(index, solver);
+                await this.contract.addSolution(index, solver);
                 console.log("If event emitted means the test passed. :) ");
             }catch(error){
                 console.log("error in new solution can be added for contract: ", error);
@@ -32,10 +32,10 @@ contract('TestSolnSquareVerifier', accounts => {
             let solver = accounts[4];
             let flag = false;
             try{
-                if(await this.contract.mintNewToken(solver, index, proofme.proof.a,
-                    proofme.proof.a_p, proofme.proof.b, proofme.proof.b_p,
-                    proofme.proof.c, proofme.proof.c_p, proofme.proof.h, 
-                    proofme.proof.k, proofme.proof.input)){
+                if(await this.contract.mintNewToken(solver, index, proofme.proof.A,
+                    proofme.proof.A_p, proofme.proof.B, proofme.proof.B_p, 
+                    proofme.proof.C, proofme.proof.C_p, proofme.proof.H, 
+                    proofme.proof.K, proofme.input)){
                         flag = true;
                 }
             }catch(error){

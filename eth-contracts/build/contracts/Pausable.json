@@ -2426,8 +2426,8 @@
         ],
         "contractDependencies": [
           146,
-          72,
-          192
+          192,
+          72
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -9254,9 +9254,9 @@
         ],
         "contractDependencies": [
           146,
-          72,
+          192,
           703,
-          192
+          72
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -12927,10 +12927,10 @@
         ],
         "contractDependencies": [
           146,
-          72,
+          192,
           703,
           1001,
-          192,
+          72,
           7478
         ],
         "contractKind": "contract",
@@ -14431,10 +14431,10 @@
         "contractDependencies": [
           1121,
           146,
-          72,
+          192,
           703,
           1001,
-          192,
+          72,
           7478
         ],
         "contractKind": "contract",
@@ -17118,8 +17118,8 @@
         ],
         "contractDependencies": [
           146,
-          72,
-          192
+          192,
+          72
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -23946,9 +23946,9 @@
         ],
         "contractDependencies": [
           146,
-          72,
+          192,
           703,
-          192
+          72
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -27619,10 +27619,10 @@
         ],
         "contractDependencies": [
           146,
-          72,
+          192,
           703,
           1001,
-          192,
+          72,
           7478
         ],
         "contractKind": "contract",
@@ -29123,10 +29123,10 @@
         "contractDependencies": [
           1121,
           146,
-          72,
+          192,
           703,
           1001,
-          192,
+          72,
           7478
         ],
         "contractKind": "contract",
@@ -29487,7 +29487,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-04-29T06:42:08.568Z",
+  "updatedAt": "2019-04-29T15:42:59.221Z",
   "devdoc": {
     "methods": {}
   },
