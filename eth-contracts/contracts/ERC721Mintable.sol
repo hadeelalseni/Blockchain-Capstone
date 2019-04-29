@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+//pragma solidity ^0.5.0;
+pragma solidity ^0.5.2;
 
 import 'openzeppelin-solidity/contracts/utils/Address.sol';
 import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
@@ -579,28 +580,31 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize { // ALL DONE :)
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
-contract ERC721Mintable is ERC721Metadata("Hadeel Alsini", "H.A", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/"){
+contract ERC721Mintable is ERC721Metadata
+("Hadeel Alsini", "H.A", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
+{
     //  1) Pass in appropriate values for the inherited ERC721Metadata contract
     //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
     // NOT SURE !
     //ERC721Metadata ERC721MetadataObject = new ERC721Metadata("Hadeel Alsini","HA","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/");
-
-
-    string private _name;
+/*    string private _name;
     string private _symbol;
     string private _baseTokenURI;
 
- /*   constructor(string memory name, string memory symbol, string memory baseURI)public
-    ERC721Metadata(name, symbol, baseURI)
-    {
-        //new ERC721Metadata(name, symbol, baseURI);
+    constructor(string memory name, string memory symbol, string memory baseURI)
+    ERC721Metadata("Hadeel Alsini", "H.A", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
+    public{
         _name = name;
         _symbol = symbol;
         _baseTokenURI = baseURI;
-    }
-*/
+    }*/
+    function mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns(bool){
+        _mint(to, tokenId);
+        setTokenURI(tokenId, tokenURI);
+        return true;
 
-    //  2) create a public mint() that does the following:
+    }   
+       //  2) create a public mint() that does the following:
 
     //      -can only be executed by the contract owner
     // NOT SURE !
@@ -613,16 +617,18 @@ contract ERC721Mintable is ERC721Metadata("Hadeel Alsini", "H.A", "https://s3-us
 
     //      -calls the superclass mint and setTokenURI functions
     // DONE :)
-
-    function mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns(bool){
-        _mint(to, tokenId);
-        setTokenURI(tokenId, tokenURI);
-        return true;
-
-    }   
     
 }
+/* 
 
+
+  function tokenURI(uint256 _optionId) external view returns (string memory) {
+    return Strings.strConcat(
+        baseURI,
+        Strings.uint2str(_optionId)
+    );
+  }
+*/
 
 
 
