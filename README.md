@@ -2,12 +2,14 @@
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
 
-`git push -f origin master`
-`truffle test test/TestERC721Mintable.js`
-
-`truffle test test/TestSquareVerifier.js`
-
-`truffle test test/TestSolnSquareVerifier.js`
+# Steps to run the project: 
+- `npm install`
+- `npm install openzeppelin-solidity`
+- `truffle compile`
+- `truffle migrate --reset`
+- `truffle test test/TestERC721Mintable.js`
+- `truffle test test/TestSquareVerifier.js`
+- `truffle test test/TestSolnSquareVerifier.js`
 
 # Project Resources
 
@@ -19,16 +21,6 @@ The capstone will build upon the knowledge you have gained in the course in orde
 * [Interactive zero knowledge 3-colorability demonstration](http://web.mit.edu/~ezyang/Public/graph/svg.html)
 * [Docker](https://docs.docker.com/install/)
 * [ZoKrates](https://github.com/Zokrates/ZoKrates)
-#STEPS: 
-- `npm install`
-- `npm install openzeppelin-solidity`
--
-- `truffle test ./test/TestERC721Mintable.js`
-
-
-
-
-
 
 #Steps from mentor: 
 Also, since you're most likely using an updated version of zokrates, you'll need to modify the instructions a bit:
@@ -52,3 +44,9 @@ Here are the steps I did:
 - truffle compile
 - truffle test
 - Now verifyTx outputs true when given a valid proof!
+
+
+
+
+
+- `git push -f origin master`
