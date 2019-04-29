@@ -1,6 +1,6 @@
 const SolnSquareVerifier = artifacts.require('SolnSquareVerifier');
 const verifier = artifacts.require('Verifier');
-const proofme = require('../../zokrates/code/square/proof.json');
+const proofme = require('../../zokrates/code/square/proof');
 
 contract('TestSolnSquareVerifier', accounts => {
     const account_one = accounts[0];

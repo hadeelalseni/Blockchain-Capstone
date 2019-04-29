@@ -10,6 +10,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 - `truffle test test/TestERC721Mintable.js`
 - `truffle test test/TestSquareVerifier.js`
 - `truffle test test/TestSolnSquareVerifier.js`
+- `truffle migrate --network rinkeby`
 
 # Project Resources
 
