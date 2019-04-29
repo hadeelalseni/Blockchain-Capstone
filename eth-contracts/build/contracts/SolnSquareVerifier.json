@@ -5529,12 +5529,12 @@
         }
       },
       "links": {},
-      "address": "0x2642fC1C816a64f6Fde84e5B38254Aba8f90EC27",
-      "transactionHash": "0x95a1ba7664f706d8177a753a38f8a84488e7d042d111a9a2a8e588bc0aaa875c"
+      "address": "0x8667Bb2D34aa5423C04Fd911a947991dcEBEC4A3",
+      "transactionHash": "0xc6a0d1382e5301b7ad5657d172c73b735644a9462bc5dd0bba204dc70c6e8af1"
     }
   },
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-04-29T04:46:48.239Z",
+  "updatedAt": "2019-04-29T06:42:32.862Z",
   "devdoc": {
     "methods": {
       "isApprovedForAll(address,address)": {

@@ -2,7 +2,7 @@
 
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
 
-
+`git push -f origin master`
 `truffle test test/TestERC721Mintable.js`
 
 `truffle test test/TestSquareVerifier.js`
