@@ -49,7 +49,7 @@ contract SolnSquareVerifier is ERC721Mintable{
 
         solutionKeyToSolverMapping[solutionKey] = solver;
         addSolution(index, solver);
-        return mint(solver, index, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/");
+        return mint(solver, index);
         //super.mint(to, tokenId);
     }
 

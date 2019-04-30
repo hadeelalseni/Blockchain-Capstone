@@ -31,7 +31,7 @@ contract('TestERC721Mintable', accounts => {
             // Mint 01
             const tokenId01 = 01;
             const account01 = accounts[2];
-            await this.contract.mint(account01, tokenId01, baseURI, {from: account_one});
+            await this.contract.mint(account01, tokenId01, {from: account_one});
             _totalSubbly = _totalSubbly + 1;
             //console.log("NAME: "+await ERC721Mintable.methods.getName());
 
@@ -39,27 +39,27 @@ contract('TestERC721Mintable', accounts => {
             const tokenId02 = 02;
             const account02 = accounts[3];
             //let token02 = await ERC721Mintable.new(name, symbol, baseURI,{from: account_one});
-            await this.contract.mint(account02, tokenId02, baseURI, {from: account_one});
+            await this.contract.mint(account02, tokenId02, {from: account_one});
             _totalSubbly = _totalSubbly + 1;
             
             // Mint 03
             const tokenId03 = 03;
             const account03 = accounts[4];
             //let token03 = await ERC721Mintable.new(name, symbol, baseURI,{from: account_one});
-            await this.contract.mint(account03, tokenId03, baseURI, {from: account_one});
+            await this.contract.mint(account03, tokenId03, {from: account_one});
             _totalSubbly = _totalSubbly + 1;
 
             // Mint 04         
             const tokenId04 = 04;
             const account04 = accounts[5];
             //let token04 = await ERC721Mintable.new(name, symbol, baseURI,{from: account_one});
-            await this.contract.mint(account04, tokenId04, baseURI, {from: account_one});
+            await this.contract.mint(account04, tokenId04, {from: account_one});
             _totalSubbly = _totalSubbly + 1;
             // Mint 05         
             const tokenId05 = 05;
             const account05 = accounts[6];
             //let token05 = await ERC721Mintable.new(name, symbol, baseURI,{from: account_one});
-            await this.contract.mint(account05, tokenId05, baseURI, {from: account_one});
+            await this.contract.mint(account05, tokenId05, {from: account_one});
             _totalSubbly = _totalSubbly + 1;
         })
 
@@ -120,7 +120,7 @@ contract('TestERC721Mintable', accounts => {
             const account06 = accounts[7];
             let flag = true;
             try{
-                await this.contract.mint(account06, tokenId06, baseURI, {from: account_two});
+                await this.contract.mint(account06, tokenId06, {from: account_two});
             }catch(err){
                 //console.log("in catch that is mean the test successed. :)");
                 flag = false;

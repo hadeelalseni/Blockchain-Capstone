@@ -548,10 +548,27 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize { // ALL DONE :)
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
     // DONE :) 
-    function getName() external view returns(string memory){
+/*    function getName() external view returns(string memory){
+        return _name;
+    }*/
+
+/*    function getSymbol() external view returns(string memory){
+        return _symbol;
+    }*/
+
+    /**
+     * @dev Gets the token name
+     * @return string representing the token name
+     */
+    function name() external view returns (string memory) {
         return _name;
     }
-    function getSymbol() external view returns(string memory){
+
+    /**
+     * @dev Gets the token symbol
+     * @return string representing the token symbol
+     */
+    function symbol() external view returns (string memory) {
         return _symbol;
     }
     function getBaseTokenURI() external view returns(string memory){
@@ -598,9 +615,9 @@ contract ERC721Mintable is ERC721Metadata
         _symbol = symbol;
         _baseTokenURI = baseURI;
     }*/
-    function mint(address to, uint256 tokenId, string memory tokenURI) public onlyOwner returns(bool){
+    function mint(address to, uint256 tokenId) public onlyOwner returns(bool){
         _mint(to, tokenId);
-        setTokenURI(tokenId, tokenURI);
+        setTokenURI(tokenId, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/");
         return true;
 
     }   
