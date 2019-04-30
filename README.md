@@ -22,7 +22,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # SolnSquareVerifier contract:
 1. Contract Addresses:
-- 0x17C2fC7751E80c1e17C1460D44B0fCA9aD7e8b51
+- 0xD93Df7D6BaDF2110C5620Ed8dE1e99d2B6E9f782
 2. Contract Abi's:
 -  "abi": [
     {
@@ -259,6 +259,21 @@ The capstone will build upon the knowledge you have gained in the course in orde
     },
     {
       "constant": true,
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x5c975abb"
+    },
+    {
+      "constant": true,
       "inputs": [
         {
           "name": "tokenId",
@@ -321,6 +336,36 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "stateMutability": "view",
       "type": "function",
       "signature": "0x893d20e8"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x8da5cb5b"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0x8f32d59b"
     },
     {
       "constant": true,
@@ -579,7 +624,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "inputs": [
         {
           "indexed": false,
-          "name": "triggr",
+          "name": "account",
           "type": "address"
         }
       ],
@@ -592,7 +637,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "inputs": [
         {
           "indexed": false,
-          "name": "triggr",
+          "name": "account",
           "type": "address"
         }
       ],
@@ -604,14 +649,19 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "anonymous": false,
       "inputs": [
         {
-          "indexed": false,
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
           "name": "newOwner",
           "type": "address"
         }
       ],
-      "name": "ownerShipTransfered",
+      "name": "OwnershipTransferred",
       "type": "event",
-      "signature": "0xadb4af5322c8fb2ce1cc1aedd7c530fdab5e7f66897e6ab4b14ef8f0ae8d3c8d"
+      "signature": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0"
     },
     {
       "constant": false,
@@ -696,7 +746,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # Verifier contract: 
 1. Contract Address: 
-- 0x093acbf2C6B19DECab1e6761FdBfCFC8064f1A74
+- 0x05095Fab7e9706CE0c56FAF52014294d49f135CC
 2. Contract Abi: 
 - "abi": [
     {

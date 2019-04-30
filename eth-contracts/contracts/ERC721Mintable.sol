@@ -16,33 +16,44 @@ contract Ownable {
     function getOwner()public view returns(address){
         return _owner;
     }
+
+    /**
+     * @return the address of the owner.
+     */
+    function owner() public view returns (address) {
+        return _owner;
+    }
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
     //  DONE :) 
-    constructor()internal payable{
+    constructor () internal {
         _owner = msg.sender;
-        emit ownerShipTransfered(_owner);
+        emit OwnershipTransferred(address(0), _owner);
     }
     //  3) create an 'onlyOwner' modifier that throws if called by any account other than the owner.
     //  DONE :) 
-    modifier onlyOwner(){
-        require(msg.sender == _owner, "This function require the owner to call it.");
+    modifier onlyOwner() {
+        require(isOwner());
         _;
+    }
+
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
     }
     //  4) fill out the transferOwnership function
     //  NOT SURE :(
+
     function transferOwnership(address newOwner) public onlyOwner {
-        // TODO add functionality to transfer control of the contract to a newOwner.
-        // make sure the new owner is a real address
-        require(newOwner.isContract(), "the new owner is NOT a real address");
+        _transferOwnership(newOwner);
+    }
+    function _transferOwnership(address newOwner) internal {
+        require(newOwner != address(0));
+        emit OwnershipTransferred(_owner, newOwner);
         _owner = newOwner;
-
-        emit ownerShipTransfered(_owner);
-
     }
 
     //  5) create an event that emits anytime ownerShip is transfered (including in the constructor)
     //  DONE :) 
-    event ownerShipTransfered(address newOwner);
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     
 }
@@ -52,7 +63,9 @@ contract Pausable is Ownable{ // ALL DONE :)
     //  1) create a private '_paused' variable of type bool
     //  DONE :) 
     bool private _paused;
-
+    function paused() public view returns (bool) {
+        return _paused;
+    }
     //  2) create a public setter using the inherited onlyOwner modifier
     //  DONE :) 
     /*Ownable ownable = new Ownable();
@@ -69,23 +82,27 @@ contract Pausable is Ownable{ // ALL DONE :)
     }
     //  3) create an internal constructor that sets the _paused variable to false
     //  DONE :) 
-    constructor() internal{
+    constructor () internal {
         _paused = false;
     }
     //  4) create 'whenNotPaused' & 'paused' modifier that throws in the appropriate situation
     //  DONE :) 
-    modifier whenNotPaused(){
-        require(!_paused, "_paused = true.");
+    modifier whenNotPaused() {
+        require(!_paused);
         _;
     }
-    modifier whenPaused(){
-        require(_paused, "_paused = false.");
+
+    /**
+     * @dev Modifier to make a function callable only when the contract is paused.
+     */
+    modifier whenPaused() {
+        require(_paused);
         _;
     }
     //  5) create a Paused & Unpaused event that emits the address that triggered the event
     //  DONE :) 
-    event Paused(address triggr);
-    event Unpaused(address triggr);
+    event Paused(address account);
+    event Unpaused(address account);
 
 }
 
@@ -164,10 +181,6 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
     }
 
     function balanceOf(address owner) public view returns (uint256) {
-        // TODO return the token balance of given address
-        // DONE :)
-        // TIP: remember the functions to use for Counters. you can refresh yourself with the link above
-        // return balance(owner);
         require(owner != address(0));
         return _ownedTokensCount[owner].current();
     }
@@ -181,30 +194,16 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
     }
 
   // @dev Approves another address to transfer the given token ID
-    function approve(address to, uint256 tokenId) public{
-        
-        // TODO require the given address to not be the owner of the tokenId
-        // DONE :) 
+    function approve(address to, uint256 tokenId) public {
         address owner = ownerOf(tokenId);
-        require(to != owner,"approve function cannot apply to the owner of the token.");
-        
-        // TODO require the msg sender to be the owner of the contract or isApprovedForAll() to be true
-        // DONE :)
+        require(to != owner);
         require(msg.sender == owner || isApprovedForAll(owner, msg.sender));
 
-        // TODO add 'to' address to token approvals
-        // DONE :)
         _tokenApprovals[tokenId] = to;
-
-        // TODO emit Approval Event
-        // DONE :) 
         emit Approval(owner, to, tokenId);
-
     }
 
     function getApproved(uint256 tokenId) public view returns (address) {
-        // TODO return token approval if it exists
-        // DONE :) 
         require(_exists(tokenId));
         return _tokenApprovals[tokenId];
     }
@@ -271,6 +270,15 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
     // @dev Internal function to mint a new token
     // TIP: remember the functions to use for Counters. you can refresh yourself with the link above
     function _mint(address to, uint256 tokenId) internal {
+        require(to != address(0));
+        require(!_exists(tokenId));
+
+        _tokenOwner[tokenId] = to;
+        _ownedTokensCount[to].increment();
+
+        emit Transfer(address(0), to, tokenId);
+    }
+    /*function _mint(address to, uint256 tokenId) internal {
 
         // TODO revert if given tokenId already exists or given address is invalid
         // DONE :)
@@ -286,10 +294,23 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
         // DONE :)
         emit Transfer(address(0), to, tokenId);
     }
-
+*/
     // @dev Internal function to transfer ownership of a given token ID to another address.
     // TIP: remember the functions to use for Counters. you can refresh yourself with the link above
     function _transferFrom(address from, address to, uint256 tokenId) internal {
+        require(ownerOf(tokenId) == from);
+        require(to != address(0));
+
+        _clearApproval(tokenId);
+
+        _ownedTokensCount[from].decrement();
+        _ownedTokensCount[to].increment();
+
+        _tokenOwner[tokenId] = to;
+
+        emit Transfer(from, to, tokenId);
+    }
+    /*function _transferFrom(address from, address to, uint256 tokenId) internal {
 
         // TODO: require from address is the owner of the given token
         // DONE :)
@@ -314,7 +335,7 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
         // DONE :)
         emit Transfer(from, to, tokenId);
     }
-
+*/
     /**
      * @dev Internal function to invoke `onERC721Received` on a target address
      * The call is not executed if the target address is not a contract
