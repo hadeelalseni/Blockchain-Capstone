@@ -5,12 +5,25 @@ The capstone will build upon the knowledge you have gained in the course in orde
 # Steps to run the project: 
 - `npm install`
 - `npm install openzeppelin-solidity`
+- `cd eth-contracts`
 - `truffle compile`
 - `truffle migrate --reset`
-- `truffle test test/TestERC721Mintable.js`
-- `truffle test test/TestSquareVerifier.js`
-- `truffle test test/TestSolnSquareVerifier.js`
+- `truffle test`
 - `truffle migrate --network rinkeby`
+- `truffle migrate --reset --network rinkeby`
+
+# Versions: 
+- Truffle v5.0.14 (core: 5.0.14)
+- Solidity v0.5.0 (solc-js)
+- Node v9.7.1
+- Web3.js v1.0.0-beta.37
+
+# Contract Addresses:
+- 
+# Contract Abi's:
+- 
+# OpenSea MarketPlace Storefront link's:
+- 
 
 # Project Resources
 
