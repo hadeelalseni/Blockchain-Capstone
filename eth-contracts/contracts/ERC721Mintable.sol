@@ -230,7 +230,7 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
         return _operatorApprovals[owner][operator];
     }
 
-    function From(address from, address to, uint256 tokenId) public {
+    function transferFrom(address from, address to, uint256 tokenId) public {
         require(_isApprovedOrOwner(msg.sender, tokenId));
 
         _transferFrom(from, to, tokenId);
@@ -241,7 +241,7 @@ contract ERC721 is Pausable, ERC165 { // ALL DONE :)
     }
 
     function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory _data) public {
-        _transferFrom(from, to, tokenId);
+        transferFrom(from, to, tokenId);
         require(_checkOnERC721Received(from, to, tokenId, _data));
     }
 
@@ -623,21 +623,9 @@ contract ERC721Mintable is ERC721Metadata
 {
     //  1) Pass in appropriate values for the inherited ERC721Metadata contract
     //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
-    // NOT SURE !
-    //ERC721Metadata ERC721MetadataObject = new ERC721Metadata("Hadeel Alsini","HA","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/");
-/*    string private _name;
-    string private _symbol;
-    string private _baseTokenURI;
 
-    constructor(string memory name, string memory symbol, string memory baseURI)
-    ERC721Metadata("Hadeel Alsini", "H.A", "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
-    public{
-        _name = name;
-        _symbol = symbol;
-        _baseTokenURI = baseURI;
-    }*/
     function mint(address to, uint256 tokenId) public onlyOwner returns(bool){
-        _mint(to, tokenId);
+        super._mint(to, tokenId);
         setTokenURI(tokenId, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/");
         return true;
 
@@ -657,16 +645,6 @@ contract ERC721Mintable is ERC721Metadata
     // DONE :)
     
 }
-/* 
-
-
-  function tokenURI(uint256 _optionId) external view returns (string memory) {
-    return Strings.strConcat(
-        baseURI,
-        Strings.uint2str(_optionId)
-    );
-  }
-*/
 
 
 

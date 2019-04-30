@@ -96,7 +96,7 @@ contract('TestERC721Mintable', accounts => {
             let owner = account03;
             let to = account04;
             //await this.contract._transferFrom(owner, to, tokenId03).call({from: owner});
-            await this.contract.From(owner, to, tokenId03, {from: owner});
+            await this.contract.transferFrom(owner, to, tokenId03, {from: owner});
             let newOwner = await this.contract.ownerOf(tokenId03);
             assert.equal(newOwner, to, "The token did not transfered to another owner.");
             

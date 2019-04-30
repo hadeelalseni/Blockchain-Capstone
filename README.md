@@ -22,7 +22,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # SolnSquareVerifier contract:
 1. Contract Addresses:
-- 0xD93Df7D6BaDF2110C5620Ed8dE1e99d2B6E9f782
+- 0x0b188857407e278099b7269a1D4C747d1Fb1e3A2
 2. Contract Abi's:
 -  "abi": [
     {
@@ -113,6 +113,29 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "stateMutability": "view",
       "type": "function",
       "signature": "0x18160ddd"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x23b872dd"
     },
     {
       "constant": false,
@@ -464,29 +487,6 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "signature": "0xc87b56dd"
     },
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "tokenId",
-          "type": "uint256"
-        }
-      ],
-      "name": "From",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function",
-      "signature": "0xc91ea5dc"
-    },
-    {
       "constant": true,
       "inputs": [
         {
@@ -748,7 +748,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 1. Contract Address: 
 - 0x05095Fab7e9706CE0c56FAF52014294d49f135CC
 2. Contract Abi: 
-- "abi": [
+-  "abi": [
     {
       "anonymous": false,
       "inputs": [
