@@ -3346,9 +3346,9 @@
           }
         ],
         "contractDependencies": [
+          185,
           105,
-          231,
-          185
+          231
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -10064,10 +10064,10 @@
           }
         ],
         "contractDependencies": [
-          737,
+          185,
           105,
-          231,
-          185
+          737,
+          231
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -13737,11 +13737,11 @@
           }
         ],
         "contractDependencies": [
-          1035,
-          737,
-          105,
-          231,
           185,
+          105,
+          737,
+          231,
+          1035,
           7512
         ],
         "contractKind": "contract",
@@ -15240,12 +15240,12 @@
           }
         ],
         "contractDependencies": [
-          1035,
-          737,
-          105,
-          231,
-          185,
           1155,
+          185,
+          105,
+          737,
+          231,
+          1035,
           7512
         ],
         "contractKind": "contract",
@@ -18350,9 +18350,9 @@
           }
         ],
         "contractDependencies": [
+          185,
           105,
-          231,
-          185
+          231
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -25068,10 +25068,10 @@
           }
         ],
         "contractDependencies": [
-          737,
+          185,
           105,
-          231,
-          185
+          737,
+          231
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -28741,11 +28741,11 @@
           }
         ],
         "contractDependencies": [
-          1035,
-          737,
-          105,
-          231,
           185,
+          105,
+          737,
+          231,
+          1035,
           7512
         ],
         "contractKind": "contract",
@@ -30244,12 +30244,12 @@
           }
         ],
         "contractDependencies": [
-          1035,
-          737,
-          105,
-          231,
-          185,
           1155,
+          185,
+          105,
+          737,
+          231,
+          1035,
           7512
         ],
         "contractKind": "contract",
@@ -30603,7 +30603,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-04-30T16:21:18.339Z",
+  "updatedAt": "2019-05-01T00:55:18.167Z",
   "devdoc": {
     "methods": {
       "isApprovedForAll(address,address)": {

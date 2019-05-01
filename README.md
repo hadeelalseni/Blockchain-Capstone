@@ -13,7 +13,6 @@ The capstone will build upon the knowledge you have gained in the course in orde
 - `truffle migrate --network rinkeby`
 - `truffle migrate --reset --network rinkeby`
 
-
 # Versions: 
 - Truffle v5.0.14 (core: 5.0.14)
 - Solidity v0.5.0 (solc-js)
@@ -22,7 +21,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # SolnSquareVerifier contract:
 1. Contract Addresses:
-- 0x0b188857407e278099b7269a1D4C747d1Fb1e3A2
+- 0x04920a9A758D888Cc7994290a4fAd3b84EB774aE
 2. Contract Abi's:
 -  "abi": [
     {
@@ -746,7 +745,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 
 # Verifier contract: 
 1. Contract Address: 
-- 0x05095Fab7e9706CE0c56FAF52014294d49f135CC
+- 0x2F96524c20a96745Fa1046011cbEbE63311fEf4f
 2. Contract Abi: 
 -  "abi": [
     {
@@ -817,7 +816,10 @@ The capstone will build upon the knowledge you have gained in the course in orde
   ]
 
 # OpenSea MarketPlace Storefront link's:
-- https://rinkeby.opensea.io/category/hadeelalsini
+- https://rinkeby.opensea.io/assets/hadeelalsiniv5
+
+# Tokens sold: 
+I sold the first five tokens. 
 
 # Project Resources
 
@@ -830,31 +832,28 @@ The capstone will build upon the knowledge you have gained in the course in orde
 * [Docker](https://docs.docker.com/install/)
 * [ZoKrates](https://github.com/Zokrates/ZoKrates)
 
-#Steps from mentor: 
+#Steps from mentor to run zokrates: 
 Also, since you're most likely using an updated version of zokrates, you'll need to modify the instructions a bit:
 
 Here are the steps I did:
 
 - Deleted all files under zokrates/code/square except square.code
-- docker run -v //c/Users/Hadeel/Desktop/Hadeel-Blockchain-Capstone/zokrates/code:/home/zokrates/code -ti zokrates/zokrates /bin/bash
+- `docker run -v //c/Users/Hadeel/Desktop/Hadeel-Blockchain-Capstone/zokrates/code:/home/zokrates/code -ti zokrates/zokrates /bin/bash`
 - Ran docker and mounted the directory
-- Inside the vm, cd code/square
-- Typed ls to make sure that nothing is there except square.code
-- ~/zokrates compile -i square.code
-- ~/zokrates setup --proving-scheme pghr13
-- ~/zokrates compute-witness -a 3 9
-- ~/zokrates generate-proof --proving-scheme pghr13
-- ~/zokrates export-verifier --proving-scheme pghr13
+- Inside the vm, `cd code/square`
+- Typed `ls` to make sure that nothing is there except square.code
+- `~/zokrates compile -i square.code`
+- `~/zokrates setup --proving-scheme pghr13`
+- `~/zokrates compute-witness -a 3 9`
+- `~/zokrates generate-proof --proving-scheme pghr13`
+- `~/zokrates export-verifier --proving-scheme pghr13`
 - exited the vm
 - removed the preceeding zeros in the input array of proof.json
 - Deleted the existing Verifier.sol in eth-contracts/contracts and replaced it with the newly generated - - Verifier.sol under zokrates/code/square
-- Deleted the existing build folder with rm -rf build
-- truffle compile
-- truffle test
+- Deleted the existing build folder with `rm -rf build` if mac OS
+- `truffle compile`
+- `truffle test`
 - Now verifyTx outputs true when given a valid proof!
 
 
 
-
-
-- `git push -f origin master`

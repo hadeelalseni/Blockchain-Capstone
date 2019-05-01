@@ -5568,12 +5568,12 @@
     "4": {
       "events": {},
       "links": {},
-      "address": "0x62F6DC84127d61F0A0aD6e3b0dB1455386a70255",
-      "transactionHash": "0x7e401ceaffd286d745c128b0a837105db14e68a3efe9283eed8e7fc906cdf266"
+      "address": "0x04920a9A758D888Cc7994290a4fAd3b84EB774aE",
+      "transactionHash": "0x6294d5d5da99111ba3e3bbbbc917f1e408a6350db2239860f1b02715607edcc0"
     }
   },
   "schemaVersion": "3.0.8",
-  "updatedAt": "2019-04-30T16:21:18.245Z",
+  "updatedAt": "2019-05-01T00:55:18.088Z",
   "devdoc": {
     "methods": {
       "isApprovedForAll(address,address)": {
