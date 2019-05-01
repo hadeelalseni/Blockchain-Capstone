@@ -21,11 +21,12 @@ contract('TestSolnSquareVerifier', accounts => {
             let solver = accounts[3];
             try{
                 await this.contract.addSolution(index, solver);
-                console.log("If event emitted means the test passed. :) ");
+                //console.log("If event emitted means the test passed. :) ");
             }catch(error){
                 console.log("error in new solution can be added for contract: ", error);
             }
         })
+
         // Test if an ERC721 token can be minted for contract - SolnSquareVerifier
         it('an ERC721 token can be minted for contract - SolnSquareVerifier', async function(){
             let index = 4;
@@ -42,6 +43,29 @@ contract('TestSolnSquareVerifier', accounts => {
                 console.log("error in an ERC721 token can be minted for contract: ", error);
             }
             assert.equal(flag, true,"mint new token false.");
+        })
+        it('an ERC721 token can NOT be minted for same solution - SolnSquareVerifier', async function(){
+            let index = 5;
+            let solver = accounts[5];
+            let flag = false;
+            try{await this.contract.mintNewToken(solver, 4, proofme.proof.A,
+                proofme.proof.A_p, proofme.proof.B, proofme.proof.B_p, 
+                proofme.proof.C, proofme.proof.C_p, proofme.proof.H, 
+                proofme.proof.K, proofme.input)
+            }catch(error){
+
+            }
+            try{
+                if(await this.contract.mintNewToken(solver, index, proofme.proof.A,
+                    proofme.proof.A_p, proofme.proof.B, proofme.proof.B_p, 
+                    proofme.proof.C, proofme.proof.C_p, proofme.proof.H, 
+                    proofme.proof.K, proofme.input)){
+                        flag = true;
+                }
+            }catch(error){
+                console.log("should be here ^______^", error);
+            }
+            assert.equal(flag, false,"mint new token false.");
         })
 
     
